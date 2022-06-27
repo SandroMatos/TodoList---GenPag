@@ -1,0 +1,59 @@
+
+<section class="section-default">
+  <div class="container">
+      <main>
+        
+          <h1>Lista de Tarefas</h1>
+          <legend>Essa é uma lista de tarefas para o teste Frontend <a href="https://genpag.com.br/" target="_blank" title="Site GenPag" alt="Link direto para o site da GenPag">GenPag</a></legend>
+          <div class="content input-content">
+              <form #f="ngForm" class="form-group">
+                  <input [(ngModel)]="taskInput" name="taskInput" type="text" class="form-control" placeholder="Digite o nome da tarefa" required>
+                  <button class="btn btn-primary" [disabled]="!f.valid" (click)="saveTaskToDo()">
+                      Salvar tarefa
+                  </button>
+              </form>
+          </div>
+          <div class="content table-content">
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>Status</th>
+                          <th class='th-title'>Título</th>
+                          <th>Ações</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let task of tasks | async; let i = index" [attr.data-index]="i">
+                          <td>
+                            <div *ngIf="task.status; else templateName">
+                              <mat-button-toggle 
+                              #toggleBtn 
+                              class="button-toggle mat-button-toggle-checked" 
+                              (click)="editStatus(task)">
+                              </mat-button-toggle>
+                            </div>
+                            <ng-template #templateName>
+                              <mat-button-toggle 
+                              #toggleBtn 
+                              class="button-toggle" 
+                              (click)="editStatus(task)">
+                              </mat-button-toggle>
+                            </ng-template>
+                          </td>
+                          <td>{{task.description}}</td>
+                          <td>
+                              <button class="btn btn-success" (click)="editTask(task)">
+                                  <i class="fa fa-edit"></i>
+                              </button>
+                              
+                              <button class="btn btn-danger" (click)="deleteTask(task)">
+                                  <i class="fa fa-remove"></i>
+                              </button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </main>
+  </div>
+</section>

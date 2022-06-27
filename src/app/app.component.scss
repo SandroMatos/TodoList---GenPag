@@ -1,0 +1,213 @@
+%btn-default {
+    background-color: #23499f;
+    border: 0px;
+    &:hover {
+        background-color: #0e2966;
+        color: #fff;
+    }
+    &:active {
+        background-color: #04153c;
+        color: #fff;
+        outline: none;
+    }
+}
+
+.section-default {
+    @media(max-width: 425px) {
+        height: 100%
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 4em 0em;
+        @media(max-width: 425px) {
+            height: 100%;
+            padding-bottom: 0em;
+        }
+        main {
+            width: 55%;
+            @media(max-width: 1024px){
+                width: 82%;
+            }
+            h1{
+                color: #25ced1;
+                margin-bottom: 0em;
+            }
+            legend {
+                color: #6a6972;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 36px;
+                border-bottom: 0;
+                @media(max-width: 425px) {
+                    font-size: 15px;
+                    line-height: 25px;
+                }
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+            }
+            @media(max-width: 425px){
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+                h1, legend{
+                    width: 82%;
+                }
+            }
+            @media(max-width: 375px) {
+                h1, legend {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            .content {
+                width: 100%;
+                background-color: rgb(255 255 255 / 8%);
+                padding: 3em 2.5em;
+                border-radius: 15px;
+                @media(max-width: 425px) {
+                    padding: 2em;
+                }
+            }
+            .input-content {
+                @media(max-width: 425px) {
+                    width: 82%;
+                    form{
+                        margin-bottom: 0em;
+                    }
+                }
+                @media(max-width: 375px) {
+                    width: 94%;
+                }
+                @media(max-width: 320px) {
+                    padding: 2em 1em
+                }
+                .form-group {
+                    display: flex;
+                    align-items: center;
+                    input {
+                        width: 100%;
+                        padding: 1.2em 1em;
+                        border-radius: 50px;
+                        @media(max-width: 425px) {
+                            width: 84%;
+                            padding: 1.3em 1em;
+                            font-size: 13px;
+                        }
+                    }
+                    button {
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 15px;
+                        line-height: 21px;
+                        display: inline-block;
+                        align-items: center;
+                        text-align: center;
+                        padding: 8px 24px;
+                        border: 0px;
+                        margin-left: -8.6em;
+                        opacity: 1;
+                        border-radius: 50px;
+                        @extend %btn-default;
+                        @media(max-width: 425px) {
+                            font-size: 13px;
+                            padding: 8px 17px;
+                            margin-left: -4em;
+                        }
+                    }
+                }
+            }
+            .table-content {
+                margin-top: 1em;
+                max-height: 42em;
+                overflow-y: auto;
+                color: #fff;
+                @media(max-width: 425px){
+                    border-radius: 0px;
+                    max-height: none;
+                    height: 100%;
+                }
+                &::-webkit-scrollbar {
+                    width: 9px;
+                }
+                &::-webkit-scrollbar-track {
+                  background:transparent;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #23499f;
+                    border-radius: 20px;
+                    border: 2px solid #141730;
+                }
+                table {
+                    width: 100%;
+                    margin-bottom: 0px;
+                    @media(max-width: 375px) {
+                        font-size: 13px;
+                    }
+                    thead {
+                        th {
+                            border-bottom: 0px;
+                        }
+                        .th-title {
+                            width: 71%;
+                            @media(max-width: 425px){
+                                width: 52%;
+                            }
+                            @media(max-width: 320px) {
+                                width: 42%
+                            }
+                        }
+                    }
+                    .btn-success {
+                        @extend %btn-default;
+                        margin-right: 0.5em;
+                    }
+                    .button-toggle {
+                        margin: 0;
+                        font: inherit;
+                        outline: none;
+                        cursor: pointer;
+                        width: 3em;
+                        height: 1.5em;
+                        padding: 2px 2px;
+                        background-color: #22253e;
+                        border: 1px solid #3f4cbd;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        &::after {
+                            content: "";
+                            width: 15px;
+                            height: 76%;
+                            background-color: #6e7ae3;
+                            display: flex;
+                            padding: 0;
+                            border-radius: 100%;
+                            line-height: 0px;
+                            left: 2px;
+                            position: absolute;
+                            transition: .5s ease-out;
+                        }
+                    }
+                    .mat-button-toggle-checked {
+                        border: solid 1px rgb(85 255 33);
+                        &::after {
+                            background-color: #55ff21;
+                            left: unset;
+                            right: 2px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
